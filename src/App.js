@@ -59,7 +59,7 @@ function App() {
       <h1 className="mb-4 titletext2">Transformers</h1>
       <h1 className="mb-4 titletext3"> Vector<span className="db-text" style={{color: 'blue'}}>DB</span> Search </h1>
       <form onSubmit={handleSubmit} className="flex2">
-        <input type="text" placeholder="Enter text here" onChange={e => setQuery({ query: e.target.value })} className="mr-2 querybox" />
+        <input type="text" placeholder="autobots, roll out ..." onChange={e => setQuery({ query: e.target.value })} className="mr-2 querybox" />
         <button className="submitbutton text-color:white" type="submit">➞</button>
       </form>
       <h2 className="justify-center powered">Powered By AI</h2>

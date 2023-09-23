@@ -57,7 +57,7 @@ function Results() {
   <span className={isConnected ? 'status-icon connected' : 'status-icon not-connected'}></span>
   {isConnected ? 'Connected' : 'Not Connected'}
 </p>
-      <h1>{query}</h1>
+    <h1 className="center-horizontal queryresult">"{query}"</h1>
       <p>Status: {status}</p>
       {status === 'completed' && (
         <div className="result-box">
