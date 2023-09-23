@@ -6,8 +6,8 @@
 
 .App {
   text-align: center;
-  opacity: var(--app-opacity); /* Add this line */
-  transition: opacity 0.5s ease-out; /* Add this line */
+  opacity: var(--app-opacity); 
+  transition: opacity 0.5s ease-out; /* fade out transition, doesnt work */
 }
 
 .App-logo {
@@ -24,17 +24,17 @@
 .connectionborder {
   border: 2px gray;
   border-radius: 12px;
-  align-items: center; /* Add this line */
+  align-items: center; 
   display: flex;
-  margin-top: -7rem; /* Add this line if not already present */
+  margin-top: 0rem; 
 }
 
 .db-text {
-  transition: text-shadow 1.5s ease-in-out; /* Add a transition to the text-shadow property */
+  transition: text-shadow 1.5s ease-in-out; 
 }
 
 .db-text:hover {
-  text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5); /* Add a shadow to the text when hovering */
+  text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5); 
 }
 
 .titletext {
@@ -70,7 +70,7 @@
   letter-spacing: -.05em;
   margin-top: 8rem;
   color: #110b11;
-  font-family: 'Poppins', sans-serif; /* Replace Alegreya with Poppins */
+  font-family: 'Poppins', sans-serif; 
   font-weight: 800;
   font-size: 70px;
   margin-bottom: 3rem;
@@ -221,6 +221,14 @@ body {
   background: linear-gradient(270deg, #dde8fe, white,#feecfa);
   background-size: 200% 200%;
   animation: Gradient 10s ease infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @keyframes Gradient {

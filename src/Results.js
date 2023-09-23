@@ -2,13 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './results.css';
 
+// useLocation is a hook from react-router-dom that provides access to the location object which contains information about the current URL.
+// useNavigate is a hook from react-router-dom that returns a navigate function that can be used to programmatically navigate.
+// useState is a hook from React that lets you add React state to function components.
+// isConnected is a boolean that checks if the FastAPI is connected.
+// status is a variable that holds the status of the data.
+// results is an object that holds the results of the data.
+
 function Results() {
   const location = useLocation();
   const navigate = useNavigate();
   const query = location.state.query;
   const [isConnected, setIsConnected] = useState(false);
   const [status, setStatus] = useState(null);
-  const [results, setResults] = useState({});
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
     // Check if the FastAPI is connected when the component is mounted
@@ -54,19 +61,19 @@ function Results() {
   return (
     <div className="Results">
       <p className="connectionstatus inline-flex flex justify-center items-center center-horizontal">
-  <span className={isConnected ? 'status-icon connected' : 'status-icon not-connected'}></span>
-  {isConnected ? 'Connected' : 'Not Connected'}
-</p>
-    <h1 className="center-horizontal queryresult">"{query}"</h1>
+        <span className={isConnected ? 'status-icon connected' : 'status-icon not-connected'}></span>
+        {isConnected ? 'Connected' : 'Not Connected'}
+      </p>
+      <h1 className="center-horizontal queryresult">"{query}"</h1>
       <p>Status: {status}</p>
-      {status === 'completed' && (
-        <div className="result-box">
-          <p className='resulttextmain'>Result: {results.result}</p>
-          <p>Chunk ID: {results.chunk_id}</p>
-          <p>Location: {results.location}</p>
-          <p>Score: {results.score}</p>
+      {status === 'completed' && results.map((result, index) => (
+        <div className="result-box" key={index}>
+          <p className='resulttextmain'>Result: {result.result}</p>
+          <p>Chunk ID: {result.chunk_id}</p>
+          <p>Location: {result.location}</p>
+          <p>Score: {result.score}</p>
         </div>
-      )}
+      ))}
       <button onClick={handleStartOver}>Start Over</button>
     </div>
   );
