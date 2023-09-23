@@ -2,10 +2,12 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap'); /* Import Gloock font */
 
 .App {
   text-align: center;
+  opacity: var(--app-opacity); /* Add this line */
+  transition: opacity 0.5s ease-out; /* Add this line */
 }
 
 .App-logo {
@@ -22,7 +24,17 @@
 .connectionborder {
   border: 2px gray;
   border-radius: 12px;
+  align-items: center; /* Add this line */
+  display: flex;
+  margin-top: -7rem; /* Add this line if not already present */
+}
 
+.db-text {
+  transition: text-shadow 1.5s ease-in-out; /* Add a transition to the text-shadow property */
+}
+
+.db-text:hover {
+  text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5); /* Add a shadow to the text when hovering */
 }
 
 .titletext {
@@ -30,25 +42,38 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -.05em;
-  margin-top: 10rem;
-  margin-bottom: 1.3rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0rem;
   color: #110b11;
   font-family: 'Outfit', sans-serif;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 400;
 }
 
 .titletext2 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.05em;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+  color: #110b11;
+  font-family: 'Outfit', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.titletext3 {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -.05em;
-  margin-top: -1rem;
+  margin-top: 8rem;
   color: #110b11;
-  font-family: 'Martian Mono', sans-serif;
+  font-family: 'Gloock', sans-serif; /* Replace VT323 with Gloock */
   font-weight: 500;
   font-size: 70px;
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
 }
 
 .status-icon {
@@ -72,7 +97,7 @@
   font-weight: 500;
 }
 
-.querybox {
+.queryboxold {
   width: 800px;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -84,14 +109,33 @@
   font-weight: 400;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
   border-right-color: transparent;
-  background-color: #e2e2e2;
+  background-color: black;
   blur: 20%;
+  text-color: white;
 }
 
-.submitbutton {
-  background-color: #e2e2e2;
+.querybox {
+  width: 800px;
+  height: 45px;
+  padding: 8px;
+  font-size: 18px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  background-color: rgba(0, 0, 0, 0.8); /* 80% opacity */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  padding-left: 12px;
+}
+
+.submitbuttonold {
+  background-color: black;
   border-color: #e2e2e2;
-  font-color: black;
+  text-color: white;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   height: 51px;
@@ -100,6 +144,23 @@
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
   border-left-color: transparent;
   blur: 20%;
+}
+
+.submitbutton {
+  height: 45px;
+  padding: 8px;
+  font-size: 18px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  background-color: rgba(0, 0, 0, 0.8); /* 80% opacity */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  padding-bottom: 0.65%;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .flex2 {
@@ -157,5 +218,14 @@
 }
 
 body {
-  background-color: #f9f6f2;
+  background: linear-gradient(270deg, #BBDEFB,#e0e0e0, #e2e2e2);
+  background-size: 200% 200%;
+  animation: Gradient 10s ease infinite;
 }
+
+@keyframes Gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+

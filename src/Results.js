@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import './results.css';
 
 function Results() {
   const location = useLocation();
@@ -52,14 +53,14 @@ function Results() {
 
   return (
     <div className="Results">
-      <p>
-        <span className={isConnected ? 'status-icon connected' : 'status-icon not-connected'}></span>
-        {isConnected ? 'Connected' : 'Not Connected'}
-      </p>
+      <p className="connectionstatus inline-flex flex justify-center items-center center-horizontal">
+  <span className={isConnected ? 'status-icon connected' : 'status-icon not-connected'}></span>
+  {isConnected ? 'Connected' : 'Not Connected'}
+</p>
       <h1>{query}</h1>
       <p>Status: {status}</p>
       {status === 'completed' && (
-        <div>
+        <div className="result-box">
           <p>Result: {results.result}</p>
           <p>Chunk ID: {results.chunk_id}</p>
           <p>Location: {results.location}</p>
