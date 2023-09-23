@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import Results from './Results';
@@ -7,6 +6,7 @@ import './App.css';
 function App() {
   const [query, setQuery] = useState({ query: '' });
   const [isConnected, setIsConnected] = useState(false);
+  const [loading, setLoading] = useState(false); // Add this line
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,6 +24,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Add this line
     // Send the input text to the FastAPI
     const response = await fetch('http://localhost:8000/search', {
       method: 'POST',
@@ -32,6 +33,8 @@ function App() {
       },
       body: JSON.stringify(query)
     });
+
+    setLoading(false); // Add this line
 
     if (response.ok) {
       const data = await response.json();
@@ -48,16 +51,18 @@ function App() {
 
   return (
     <div className="App flex flex-col items-center pt-32">
-      <p>
+      <p className="bg-gray-300 rounded-full inline-flex p-1 px-3">
         <span className={isConnected ? 'status-icon connected' : 'status-icon not-connected'}></span>
         {isConnected ? 'Connected' : 'Not Connected'}
       </p>
       <h1 className="mb-4 titletext">Optimus Prime Transformers</h1>
-      <h1 className="mb-4 titletext2">VectorDB Search</h1>
-      <form onSubmit={handleSubmit} className="flex">
+      <h1 className="mb-4 titletext2">Vector<span style={{color: 'blue'}}>DB</span> Search</h1>
+      <form onSubmit={handleSubmit} className="flex2">
         <input type="text" placeholder="Enter text here" onChange={e => setQuery({ query: e.target.value })} className="mr-2 querybox" />
         <button className="submitbutton" type="submit">Submit</button>
       </form>
+      <h2 className="justify-center powered">Powered By AI</h2>
+      {loading && <div className="justify-center flex2 spinner items-center"></div>} {/* Add this line */}
     </div>
   );
 }

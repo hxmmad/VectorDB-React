@@ -1,7 +1,8 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
 
 .App {
   text-align: center;
@@ -18,66 +19,93 @@
   }
 }
 
+.connectionborder {
+  border: 2px gray;
+  border-radius: 12px;
+
+}
+
 .titletext {
-  font-size: 2rem;
+  font-size: 0.7rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -.05em;
   margin-top: 10rem;
-  margin-bottom: 1rem;
-  color: #2d3748;
-  font-family: 'Manrope', sans-serif;
+  margin-bottom: 1.3rem;
+  color: #110b11;
+  font-family: 'Outfit', sans-serif;
   font-size: 50px;
-  font-weight: 800;
+  font-weight: 400;
 }
 
-  .titletext2 {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -.05em;
-    margin-top: -1rem;
-    color: #2d3748;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 800;
-    font-size: 70px;
-  } 
+.titletext2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.05em;
+  margin-top: -1rem;
+  color: #110b11;
+  font-family: 'Martian Mono', sans-serif;
+  font-weight: 500;
+  font-size: 70px;
+  margin-bottom: 10rem;
+}
 
-  .status-icon {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 5px;
-  }
-  
-  .connected {
-    background-color: green;
-  }
-  
-  .not-connected {
-    background-color: red;
-  }
+.status-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.connected {
+  background-color: green;
+}
+
+.not-connected {
+  background-color: red;
+}
+
+.connectiontext {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+}
 
 .querybox {
-  width: 600px;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  height: 30px;
+  width: 800px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  height: 45px;
+  border-color: #e2e2e2;
   padding-left: 8px;
-  font-size: 14px;
-  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-family: 'Outfit', sans-serif;
   font-weight: 400;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+  border-right-color: transparent;
+  background-color: #e2e2e2;
+  blur: 20%;
 }
 
 .submitbutton {
-  background-color: white;
+  background-color: #e2e2e2;
+  border-color: #e2e2e2;
   font-color: black;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-  height: 36px;
-  font-family: 'Manrope', sans-serif;
+  height: 51px;
+  font-family: 'Outfit', sans-serif;
   font-weight: 400;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+  border-left-color: transparent;
+  blur: 20%;
+}
+
+.flex2 {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .App-header {
@@ -95,6 +123,30 @@
   color: #61dafb;
 }
 
+.powered {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1.4rem;
+  margin-bottom: 1rem;
+  text-color: darkgray;
+}
+
+.spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 16px solid #0000ff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  px: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -105,5 +157,5 @@
 }
 
 body {
-  background-color: antiquewhite;
+  background-color: #f9f6f2;
 }
