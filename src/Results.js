@@ -61,7 +61,7 @@ function Results() {
       <p>Status: {status}</p>
       {status === 'completed' && (
         <div className="result-box">
-          <p>Result: {results.result}</p>
+          <p className='resulttextmain'>Result: {results.result}</p>
           <p>Chunk ID: {results.chunk_id}</p>
           <p>Location: {results.location}</p>
           <p>Score: {results.score}</p>
