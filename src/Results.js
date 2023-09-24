@@ -6,8 +6,6 @@ import './results.css';
 // useNavigate is a hook from react-router-dom that returns a navigate function that can be used to programmatically navigate.
 // useState is a hook from React that lets you add React state to function components.
 // isConnected is a boolean that checks if the FastAPI is connected.
-// status is a variable that holds the status of the data.
-// results is an object that holds the results of the data.
 
 function Results() {
   const location = useLocation();
